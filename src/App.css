@@ -1,38 +1,54 @@
-.App {
+.app {
   text-align: center;
+
+  /* Colores para fondos */
+  --color-oscuro: #333;
+  --color-claro: #FFF;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/** =====================================
+                 SWITCH
+    ===================================== */
+
+.boton-switch {
+  background: none;
+  border: none;
+  font-size: var(--diametro-switch-grande); /** Agregar variable */
+  cursor: pointer;
+}
+    
+.modo-oscuro .boton-modo-claro {
+  display: block;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.boton-modo-claro,
+.modo-oscuro .boton-modo-oscuro {
+  display: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.button-addItem{
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  transition: 0.25s linear;
+  padding: 12px 36px;
+  background-color: dodgerblue;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.button-addItem:hover{
+  background-color: whitesmoke;
+  color: #333;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.modal{
+  position: absolute;
+  width: 100%;
+    max-width: 400px;
+    z-index: 1;
+    background-color: white;
+    padding: 24px;
+    border: 4px;
+} 

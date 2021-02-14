@@ -1,0 +1,53 @@
+ .modal{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+
+/* b {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.25);  
+}
+
+.modal-article {
+    width: 100%;
+    max-width: 400px;
+    z-index: 1;
+    background-color: white;
+    padding: 24px;
+    border: 4px;
+} */
+
+.button-submit {
+    cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  transition: 0.25s linear;
+  padding: 12px 36px;
+  background-color: dodgerblue;
+  color: white;
+}
+
+.button-cancel{
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    transition: 0.25s linear;
+    padding: 12px 36px;
+    background-color: whitesmoke;
+    color: #333;
+}
+

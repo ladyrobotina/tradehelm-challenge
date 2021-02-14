@@ -1,27 +1,30 @@
 import React, { useState, useEffect } from "react";
+import "./App.css";
+import Modal from 'react-modal';
 import { TaskRow } from "./components/TaskRow";
 import { ItemCreator } from "./components/ItemCreactor";
 
 function App() {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [taskItems, setTaskItems] = useState([]);
 
-  const [showCompleted, setshowCompleted] = useState(true);
-
+  //Va a mostrar la lista que ya fue previamente cargada
   useEffect(() => {
     let data = localStorage.getItem("items");
     if (data != null) {
         setTaskItems(JSON.parse(data))
     } else {
-          <div>
-            <p>Inserte un item</p>
-          </div>
+            return <span>Inserte un item a la lista</span>
           }
   }, []);
 
+  //Funcion para guardar los datos en el localstorage
   useEffect(() => {
     localStorage.setItem("items", JSON.stringify(taskItems));
   }, [taskItems]);
 
+  //Funcion para crear un nuevo item a la lista
+  //Si el item ya existe, no permite agregar
   const createNewItem = taskName => {
     if (!taskItems.find(t => t.name === taskName)) {
       setTaskItems([...taskItems, { name: taskName, done: false }]);
@@ -43,6 +46,18 @@ function App() {
         <TaskRow key={task.name} task={task} toggleTask={toggleTask} />
       ));
 
+  //Estilos del Modal
+   const customStyles = {
+     content : {
+       top                   : '50%',
+       left                  : '50%',
+       right                 : 'auto',
+       bottom                : 'auto',
+       marginRight           : '-50%',
+       transform             : 'translate(-50%, -50%)'
+     }
+   };
+
   return (
     <div className="app">
       <div>
@@ -51,12 +66,18 @@ function App() {
         </h1>
         <p className="text-black text-center p-2">{taskItems.filter(t => !t.done).length}{" "}item(s)</p>
       </div>
-      <ItemCreator callback={createNewItem} />
+      <button className="button-addItem" onClick={() => setModalIsOpen(true)} >Add Item</button>
+      <Modal style={customStyles} isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
+        <ItemCreator callback={createNewItem} />
+        
+      
+      </Modal>
+      
       
       <table className="table table-striped table-bordered">
         <thead>
           <tr>
-            <th className="bg-primary text-white text-center p-2">Description</th>
+            <th className="bg-primary text-white text-center p-2">Item</th>
             <th className="bg-primary text-white text-center p-2">Done</th>
           </tr>
         </thead>
