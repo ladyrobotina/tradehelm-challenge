@@ -42,7 +42,7 @@ function App() {
         <h1 className="text-black text-center p-4">
             Supermarket list
         </h1>
-        {/* <p className="text-black text-center p-2">{taskItems.filter(t => !t.done).length}{" "}item(s)</p> */}
+        <p className="text-black text-center p-2">{listItems.length}{" "}item(s)</p> 
       </div>
       <button className="button-addItem" onClick={() => setModalIsOpen(true)} >Add Item</button>
       <Modal style={customStyles} isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>

@@ -8,17 +8,6 @@ export default function List({text, listItems, setListItems, item}) {
         setListItems(listItems.filter(el => el.id !== item.id))
     };
 
-    const completeHandler = () => {
-        setListItems(listItems.map(item => {
-            if (item.id === text.id) {
-                return{
-                    ...item, completed: !item.completed
-                }
-            }
-            return item;
-        }))
-    }
-
     return (
         <div className="list">
             <li className="list_item">{text}</li>

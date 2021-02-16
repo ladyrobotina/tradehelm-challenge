@@ -7,14 +7,27 @@ export const ItemCreator = ({itemText, setItemText, listItems, setListItems, set
   //Funcion para tomar el texto que se ingresa en el input
   const inputTextHandler = (e) => {
     setItemText(e.target.value)
+    if (!itemText) return;
   }
 
   const submitItemHandler = (e) => {
     e.preventDefault();
-    setListItems([
-      ...listItems, {text: itemText, completed: false, id: Math.random() * 1000 },
-    ]);
-    setItemText("");
+
+    if(!itemText) {
+      setModalIsOpen(false);
+    } else {
+
+      if(setListItems.text === listItems.text) {
+        alert("This product already exist in the list")
+      } else{
+
+      setListItems([
+        ...listItems, {text: itemText, completed: false, id: Math.random() * 1000 },
+      ]);
+      setItemText("");
+      setModalIsOpen(false);
+    }}
+
   }
 
   return (
@@ -24,6 +37,7 @@ export const ItemCreator = ({itemText, setItemText, listItems, setListItems, set
       <input
         type="text"
         className="form-control"
+        autoFocus
         value={itemText}
         onChange={inputTextHandler}
       />

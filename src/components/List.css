@@ -1,6 +1,7 @@
 .list {
     margin: 0.5rem;
-    background: white;
+    padding: 10px;
+    background: rgb(202, 200, 200);
     font-size: 1.5rem;
     color: black;
     display: flex;
@@ -11,6 +12,8 @@
 
 .list_item {
     padding: 0rem 0.5rem;
+    /* background-color: lightgray;
+    border-color: gray; */
 }
 
 .list_button{
@@ -23,4 +26,9 @@
   padding: 12px 36px;
   background-color: whitesmoke;
   
+}
+
+.list_button:hover {
+  background-color: gray;
+  color: white;
 }
