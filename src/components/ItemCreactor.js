@@ -15,20 +15,26 @@ export const ItemCreator = ({itemText, setItemText, listItems, setListItems, set
 
     if(!itemText) {
       setModalIsOpen(false);
-    } else {
+    } 
+      else{
+        
+        setListItems([
+          ...listItems, {text: itemText, completed: false, id: Math.random() * 1000 },
+        ]);
+               
+        setItemText("");
+        setModalIsOpen(false);
+      }
+      
+    }
 
-      if(setListItems.text === listItems.text) {
-        alert("This product already exist in the list")
-      } else{
+    const sameItemHandler = (e) => {
 
-      setListItems([
-        ...listItems, {text: itemText, completed: false, id: Math.random() * 1000 },
-      ]);
-      setItemText("");
-      setModalIsOpen(false);
-    }}
-
-  }
+      if(itemText.text === listItems.text){
+        alert("product")
+    }
+    } 
+  
 
   return (
     <div className="my-1">
