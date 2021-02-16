@@ -1,29 +1,6 @@
 .app {
   text-align: center;
 
-  /* Colores para fondos */
-  --color-oscuro: #333;
-  --color-claro: #FFF;
-}
-
-/** =====================================
-                 SWITCH
-    ===================================== */
-
-.boton-switch {
-  background: none;
-  border: none;
-  font-size: var(--diametro-switch-grande); /** Agregar variable */
-  cursor: pointer;
-}
-    
-.modo-oscuro .boton-modo-claro {
-  display: block;
-}
-
-.boton-modo-claro,
-.modo-oscuro .boton-modo-oscuro {
-  display: none;
 }
 
 .button-addItem{

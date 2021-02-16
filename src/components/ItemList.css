@@ -1,0 +1,10 @@
+.itemList_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemList {
+    min-width: 30%;
+    list-style: none;
+}

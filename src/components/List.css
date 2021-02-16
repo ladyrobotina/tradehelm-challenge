@@ -1,0 +1,26 @@
+.list {
+    margin: 0.5rem;
+    background: white;
+    font-size: 1.5rem;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 1s ease;
+}
+
+.list_item {
+    padding: 0rem 0.5rem;
+}
+
+.list_button{
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  transition: 0.25s linear;
+  padding: 12px 36px;
+  background-color: whitesmoke;
+  
+}

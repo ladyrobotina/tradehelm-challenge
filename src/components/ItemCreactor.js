@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import "./ItemCreator.css";
 
-export const ItemCreator = props => {
-  const [newItemName, setNewItemName] = useState("");
+export const ItemCreator = ({itemText, setItemText, listItems, setListItems, setModalIsOpen}) => {
+  
 
-  const updateNewItemValue = e => setNewItemName(e.target.value);
+  //Funcion para tomar el texto que se ingresa en el input
+  const inputTextHandler = (e) => {
+    setItemText(e.target.value)
+  }
 
-  const createNewItem = () => {
-    props.callback(newItemName);
-    setNewItemName('');
+  const submitItemHandler = (e) => {
+    e.preventDefault();
+    setListItems([
+      ...listItems, {text: itemText, completed: false, id: Math.random() * 1000 },
+    ]);
+    setItemText("");
   }
 
   return (
@@ -18,15 +24,15 @@ export const ItemCreator = props => {
       <input
         type="text"
         className="form-control"
-        value={newItemName}
-        onChange={updateNewItemValue}
+        value={itemText}
+        onChange={inputTextHandler}
       />
       <button className="button-cancel" type="button" 
-      // onClick={() => setModalIsOpen(false)}
+       onClick={() => setModalIsOpen(false)}
        >
         Cancel
       </button>
-      <button className="button-submit" type="submit" onClick={createNewItem}>
+      <button className="button-submit" type="submit" onClick={submitItemHandler}>
         Add
       </button>
       </div>
