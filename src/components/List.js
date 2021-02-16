@@ -1,7 +1,7 @@
 import React from 'react';
 import "./List.css"
 
-export default function List({text, itemText, setItemText, listItems, setListItems, item}) {
+export default function List({text, listItems, setListItems, item}) {
     
     //Funcion para borrar el elemento de la lista
     const deleteHandler = () => {
